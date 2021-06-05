@@ -7,18 +7,15 @@
 </head>
 <body>
 
-<form id="upload-file" enctype="multipart/form-data">
-
+<form id="upload-file" enctype="multipart/form-data" method="post">
     {% csrf_token %}
     <div>
         <label for="formFileLg" class="form-label">Choose to Upload your file <br></label>
         <input class="form-control form-control-lg" id="formFileLg" name="upload" type="file">
     </div>
-    <button id="upload-file-btn" type="button">Upload</button>
+    <button type="submit">Upload</button>
 
 </form>
-
-<p id="json_data_new">
 
 </p>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
