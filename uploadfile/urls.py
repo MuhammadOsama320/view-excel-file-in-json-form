@@ -6,6 +6,6 @@ from . import views
 urlpatterns = [
 
     path('', views.home),
-    path('file_upload', csrf_exempt(views.file), name='excel_to_json')
-
+    path('file_upload', csrf_exempt(views.file), name='excel_to_json'),
+    path('list', views.table, name='data')
 ]

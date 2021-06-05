@@ -4,7 +4,8 @@ from django.db import models
 # Create your models here.
 class Customer(models.Model):
     status_choice = (
-        ('Delivered', 'Delivered'), ('Pending', 'Pending'), ('Cancel', 'Cancel')
+        ('Delivered', 'Delivered'), ('Pending', 'Pending'), ('Cancel', 'Cancel'), ('Complete', 'Complete'),
+        ('Return', 'Return')
     )
     pickup_address_id = models.IntegerField(null=True, blank=True)
     show_information_on_air_waybill = models.CharField(max_length=50, null=True, blank=True)
@@ -39,7 +40,5 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.consignee_name
-
-    class Meta:
         verbose_name = 'Customer'
         verbose_name_plural = 'Customer'

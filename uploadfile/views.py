@@ -1,11 +1,14 @@
 import datetime
 import pandas as pd
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.shortcuts import redirect
 from .models import Customer
+from uploadfile.models import Customer
+
 
 # Create your views here.
-from uploadfile.models import Customer
 
 
 def home(request):
@@ -76,4 +79,10 @@ def file(request):
                                           shipper_reference_number_5=row.get("Shipper Reference Number 5"
                                                                              ))
 
-    return HttpResponse()
+    cus = Customer.objects.all()
+    print('My output', cus)
+    return redirect('data')
+
+
+def table(request):
+    return render(request, 'data.html')
